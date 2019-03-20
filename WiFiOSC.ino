@@ -55,8 +55,8 @@
 #define OLED_RESET -1  // to keep the compiler happy
 Adafruit_SSD1306 display(OLED_RESET);
 
-char ssid[] = "cruzer";          // your network SSID (name)
-char pass[] = "xa_bY+9939'zz";                    // your network password
+char ssid[] = "your_SSID";          // your network SSID (name)
+char pass[] = "your_password";      // your network password
 
 // A UDP instance to let us send and receive packets over UDP
 WiFiUDP Udp;

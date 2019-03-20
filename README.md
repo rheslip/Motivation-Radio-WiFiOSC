@@ -21,7 +21,7 @@ Motivation Radio is a general purpose eurorack module based on the ESP32 with:
 
 Motivation Radio is intended mainly for interfacing eurorack to other devices (e.g. iPad) wirelessly but it can do more!
 
-### BLEMIDI Hardware Usage
+### Hardware Usage
 
 * Gate inputs - currently unused in this sketch
 
@@ -36,7 +36,7 @@ Serial MIDI in - currently unused in this sketch
 
 Serial MIDI out - currently unused in this sketch
 
-Encoder and Button currently unused in this sketch
+Encoder and Button - currently unused in this sketch
 
 
 
@@ -44,7 +44,7 @@ Encoder and Button currently unused in this sketch
 
 This sketch was written for and tested with the iOS app TouchOSC https://hexler.net/software/touchosc but it should work with anything that sends OSC messages in the format described below.
  
-The TouchOSC app allows you to create custom iPad UIs with sliders, buttons, switches, X-Y controllers etc. When you use the UI widgets TouchOSC sends an OSC message to a preconfigured IP address and port. This sketch will convert OSC messages to Gate signals and CV outputs on Movitation Radio. Its possible to send OSC messages from Motivation Radio to TouchOSC but this requires knowing the IP address of the iPad. There is probably some easy way to do this (Bonjour?) but its sending OSC messages is not implemented at this point.
+The TouchOSC app allows you to create custom iPad UIs with sliders, buttons, switches, X-Y controllers etc. When you use the UI widgets TouchOSC sends an OSC message to a preconfigured IP address and port. This sketch will convert OSC messages to Gate signals and CV outputs on Movitation Radio. Its possible to send OSC messages from Motivation Radio to TouchOSC but this requires knowing the IP address of the iPad. There is probably some easy way to do this (Bonjour?) but sending OSC messages is not implemented at this point.
  
 You will have to change the ssid and password in the sketch to match your WiFi network. Expressif has an API to set up SSID and password using an external app but I have not had much luck with it. 
  
@@ -52,25 +52,25 @@ When Motivation Radio connects to the WiFi network via DHCP it will display its 
  
 To set Gate Out A (leftmost on the Motivation Radio panel) low, send the OSC message: 
  
-* /GateoutA,0 
+/GateoutA,0 
 
 Note: the number should be sent as a float but is treated as boolean 0 or 1. To set Gate Out A high send the OSC message:
  
-* /GateoutA,1 
+/GateoutA,1 
  
 The same message format is used  for Gate outs B, C and D
 
  OSC CV messages- to set CV Out A to its lowest voltage (approx 0V) send the OSC message:
  
-* /CVoutA,0    
+/CVoutA,0    
  
-The number should be sent as a float ranging from 0 (approx 0V out) to 1 (approx 6.144V out). This is intended to be used with sliders, X-Y pads etc.
+The number should be sent as a float ranging from 0 (approx 0V out) to 1 (approx 6.144V out). This range is intended to be used with slider widjets, X-Y pads etc. 
  
-The Same message format is used for CV outs B, C and D
+The same message format is used for CV outs B, C and D
 
 Incoming OSC messages are NOT checked for valid range so be careful what you send or you may not get what you expect out.
  
-A very simple UI for TouchOSC is included in /resources. Four buttons control gates A-D and four sliders adjust the CV outputs A-D. You will have to load this in the TouchOSC editor on a PC and sync it to the TouchOSC app on your iPad.
+A very simple UI for TouchOSC is included in /resources. Four buttons control gates A-D and four sliders adjust the CV outputs A-D. You will have to load this template in the TouchOSC editor on a PC and sync it to the TouchOSC app on your iPad.
 
 
 ### Software Dependendencies:
