@@ -59,8 +59,8 @@
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-char ssid[] = "smithhouse";          // your network SSID (name)
-char pass[] = "SM1THH@U5";      // your network password
+char ssid[] = "your_network_ssid";          // your network SSID (name)
+char pass[] = "your_network_password";      // your network password
 
 // A UDP instance to let us send and receive packets over UDP
 WiFiUDP Udp;
