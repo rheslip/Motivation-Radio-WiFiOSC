@@ -46,14 +46,18 @@
 #include <OSCData.h>
 #include <Wire.h>
 #include "SPI.h"
+#include <Adafruit_I2CDevice.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include "MORAD_IO.h"
-#include "DAC.H"
+#include "DAC.h"
 #include "MORAD_utility.h"
 
-#define OLED_RESET -1  // to keep the compiler happy
-Adafruit_SSD1306 display(OLED_RESET);
+#define OLED_RESET -1  // sharing with reset pin
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 32
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 char ssid[] = "your_SSID";          // your network SSID (name)
 char pass[] = "your_password";      // your network password
